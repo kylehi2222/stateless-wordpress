@@ -1,0 +1,21 @@
+.ps-pages__categories {
+  @include accordions;
+}
+
+.ps-pages__category {}
+
+.ps-pages__category--open {
+  @include accordion--open;
+}
+
+.ps-pages__category-title {}
+
+.ps-pages__category-action {}
+
+.ps-pages__category-list {}
+
+.ps-pages__category-footer {
+  text-align: center;
+}
+
+.ps-pages__category-footer-action {}

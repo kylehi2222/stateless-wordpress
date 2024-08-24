@@ -1,13 +1,17 @@
 <?php
 
 // MySQL Configuration
-define( 'DB_NAME',     $_ENV['WP_DB_NAME']);
-define( 'DB_USER',     $_ENV['WP_DB_USER']);
-define( 'DB_PASSWORD', $_ENV['WP_DB_PASSWORD']);
-define( 'DB_HOST',     $_ENV['WP_DB_HOST']);
-define( 'DB_CHARSET',  $_ENV['WP_DB_CHARSET']);
-define( 'DB_COLLATE',  $_ENV['WP_DB_COLLATE']);
-$table_prefix = 'wp_';
+define( 'DB_NAME',     'hdai_db' );
+define( 'DB_USER',     'hdaiadmin' );
+define( 'DB_PASSWORD', 'SuperAbundance@888' );
+define( 'DB_HOST',     'hdai-db.mysql.database.azure.com' );
+define( 'DB_CHARSET',  'utf8' );
+define( 'DB_COLLATE',  '' );
+$table_prefix = 'wp_6h';
+
+// Enable SSL for MySQL
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+define('MYSQL_SSL_CA', '/etc/ssl/certs/DigiCertGlobalRootCA.crt.pem');
 
 // Authentication Unique Keys and Salts
 define( 'AUTH_KEY',         $_ENV['WP_AUTH_KEY']);
@@ -22,24 +26,24 @@ define( 'NONCE_SALT',       $_ENV['WP_NONCE_SALT']);
 // Debug
 define( 'WP_DEBUG', false );
 
-// Stateless 
+// Stateless
 define( 'DISALLOW_FILE_MODS', true );
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
 define( 'WP_AUTO_UPDATE_CORE', false );
 
 // Reverse Proxy
 if ( strpos( $_SERVER['HTTP_X_FORWARDED_PROTO'], 'https' ) !== false ) {
-	$_SERVER['HTTPS'] = 'on';
+    $_SERVER['HTTPS'] = 'on';
 }
 
 if ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-	$http_x_headers = explode( ',', $_SERVER['HTTP_X_FORWARDED_FOR'] );
-	$_SERVER['REMOTE_ADDR'] = $http_x_headers[0];
+    $http_x_headers = explode( ',', $_SERVER['HTTP_X_FORWARDED_FOR'] );
+    $_SERVER['REMOTE_ADDR'] = $http_x_headers[0];
 }
 
 // Absolute path to the WordPress directory
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+    define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
 
 // Sets up WordPress vars and included files

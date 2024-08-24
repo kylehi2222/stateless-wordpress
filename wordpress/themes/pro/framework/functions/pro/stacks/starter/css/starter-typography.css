@@ -1,0 +1,96 @@
+/* Custom Fonts
+// ========================================================================== */
+
+body,
+input,
+button,
+select,
+textarea {
+  font-family: {{dc:theme:x_body_font_family_selection destination="font-family"}};
+  color: {{dc:theme:x_body_font_color}};
+}
+
+
+/* Custom Fonts - Colors
+// ========================================================================== */
+
+/*
+// Headings.
+ */
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a, blockquote {
+  color: {{dc:theme:x_headings_font_color}};
+  font-family: {{dc:theme:x_headings_font_family_selection destination="font-family"}};
+}
+
+.cfc-h-tx { color:            {{dc:theme:x_headings_font_color}}; !important; }
+.cfc-h-bd { border-color:     {{dc:theme:x_headings_font_color}}; !important; }
+.cfc-h-bg { background-color: {{dc:theme:x_headings_font_color}}; !important; }
+
+
+/*
+// Body.
+ */
+
+.cfc-b-tx { color:            {{dc:theme:x_body_font_color}}; !important; }
+.cfc-b-bd { border-color:     {{dc:theme:x_body_font_color}}; !important; }
+.cfc-b-bg { background-color: {{dc:theme:x_body_font_color}}; !important; }
+
+/* Headings
+// ========================================================================== */
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: {{dc:theme:x_headings_font_family_selection destination="font-family"}};
+
+  font-style: <?php echo get_option("x_headings_font_is_italic") ? 'italic' : 'normal'; ?>;
+
+  font-weight: {{dc:theme:x_headings_font_weight}};
+
+  <?php if (get_option("x_headings_uppercase_enable")) {
+    echo "text-transform: uppercase;";
+  }?>
+}
+
+h1, .h1 {
+  letter-spacing: {{dc:theme:x_h1_letter_spacing unit="em"}};
+}
+
+h2, .h2 {
+  letter-spacing: {{dc:theme:x_h2_letter_spacing unit="em"}};
+}
+
+h3, .h3 {
+  letter-spacing: {{dc:theme:x_h3_letter_spacing unit="em"}};
+}
+
+h4, .h4 {
+  letter-spacing: {{dc:theme:x_h4_letter_spacing unit="em"}};
+}
+
+h5, .h5 {
+  letter-spacing: {{dc:theme:x_h5_letter_spacing unit="em"}};
+}
+
+h6, .h6 {
+  letter-spacing: {{dc:theme:x_h6_letter_spacing unit="em"}};
+}
+
+.w-h {
+  font-weight: {{dc:theme:x_headings_font_weight}} !important;
+}
+
+<?php /* Links */ ?>
+
+a, .widget.widget_text ol li a, .widget_nav_menu .current-menu-item > a {
+  color: {{dc:theme:x_site_link_color fallback="blue"}};
+}
+
+a:hover, h1 a:hover, h2 a:hover, h3 a:hover,
+h4 a:hover, h5 a:hover, h6 a:hover, .x-breadcrumb-wrap a:hover,
+.widget ul li a:hover, .widget ol li a:hover, .widget.widget_text ul li a,
+.x-accordion-heading .x-accordion-toggle:hover,
+.x-comment-author a:hover, .x-comment-time:hover,
+.x-recent-posts a:hover .h-recent-posts
+{
+  color: {{dc:theme:x_site_link_color_hover fallback="dc:theme:x_site_link_color fallback='blue'"}};
+}

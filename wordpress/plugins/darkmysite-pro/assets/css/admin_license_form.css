@@ -1,0 +1,187 @@
+/*------------------------------------------------------------------
+License Form (License Form Page)
+-------------------------------------------------------------------*/
+
+.darkmysite_license_form_main {
+    background: #F0F0F1;
+    margin-left: -20px;
+}
+
+/* Header */
+.darkmysite_license_form_header{
+    position: relative;
+    background: #ffffff;
+    padding: 0 35px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    z-index: 555;
+    box-shadow: 0 4px 2px -2px #bfbdbd;
+}
+
+.darkmysite_license_form_header .darkmysite_icon{
+    background: url(../img/darkmysite_logo.svg) no-repeat;
+    background-size: 160px;
+    background-position-x: center;
+    background-position-y: center;
+    width: 160px;
+    height: 38px;
+}
+.darkmysite_dark_mode_enabled .darkmysite_license_form_header .darkmysite_icon{
+    background: transparent url(../img/darkmysite_logo_dark.svg) no-repeat;
+    background-size: 160px;
+    background-position-x: center;
+    background-position-y: center;
+    width: 160px;
+    height: 38px;
+}
+
+
+
+
+
+
+.darkmysite_license_form_body{
+    position: relative;
+    height: calc(100vh - 102px);
+    padding: 0 50px;
+}
+
+.darkmysite_license_form_body .darkmysite_license_form_body_container{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 500px;
+}
+
+
+
+
+
+.darkmysite_license_form_body .darkmysite_license_form_main_area{
+    padding-top: 40px;
+}
+
+
+.darkmysite_license_form_main_area_header{
+    display: flex;
+    align-items: center;
+}
+.darkmysite_license_form_main_area_header .darkmysite_license_form_main_area_header_details h2{
+    margin: 0;
+    font-size: 24px;
+    color: #252F3C;
+    font-weight: 700;
+}
+.darkmysite_license_form_main_area_header .darkmysite_license_form_main_area_header_details p{
+    margin: 7px 0 0 0;
+    font-size: 15px;
+    color: #737577;
+}
+
+
+
+
+
+.darkmysite_license_form_main_area_body{
+    margin: 25px 0 0 0;
+    padding: 50px 10px;
+    background: #FFFFFF;
+    -webkit-box-shadow: 1px 1px 3px 0 #d4d2d4;
+    -moz-box-shadow: 1px 1px 3px 0 #d4d2d4;
+    box-shadow: 1px 1px 3px 0 #d4d2d4;
+}
+
+.darkmysite_license_form_main_area_body .darkmysite_license_form_main_area_body_container{
+    display: block;
+    max-width: 630px;
+    margin: 0 auto;
+}
+
+
+.darkmysite_license_form_error_msg{
+    display: none;
+    color: #721c24;
+    background-color: #f8d7da;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #f5c6cb;
+    border-radius: 0.25rem;
+}
+
+.darkmysite_license_form_single_form_element{
+    padding-top: 26px;
+}
+
+.darkmysite_license_form_single_form_element label{
+    display: block;
+    color: #2B2A2D;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+.darkmysite_license_form_single_form_element p{
+    display: block;
+    color: #8a8a8a;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 2px 0 0 0;
+}
+.darkmysite_license_form_single_form_element input[type="text"],
+.darkmysite_license_form_single_form_element input[type="email"],
+.darkmysite_license_form_single_form_element input[type="url"],
+.darkmysite_license_form_single_form_element input[type="password"],
+.darkmysite_license_form_single_form_element input[type="number"],
+.darkmysite_license_form_single_form_element input[type="time"],
+.darkmysite_license_form_single_form_element input[type="date"],
+.darkmysite_license_form_single_form_element input[type="datetime-local"],
+.darkmysite_license_form_single_form_element textarea,
+.darkmysite_license_form_single_form_element select{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #43454b;
+    background: #F6F8FA;
+    border: 1px solid #E4E4E6;
+    outline: none;
+    box-shadow: none;
+}
+
+.darkmysite_license_form_single_form_element input[type="text"]:focus,
+.darkmysite_license_form_single_form_element input[type="email"]:focus,
+.darkmysite_license_form_single_form_element input[type="url"]:focus,
+.darkmysite_license_form_single_form_element input[type="password"]:focus,
+.darkmysite_license_form_single_form_element input[type="number"]:focus,
+.darkmysite_license_form_single_form_element input[type="time"]:focus,
+.darkmysite_license_form_single_form_element input[type="date"]:focus,
+.darkmysite_license_form_single_form_element input[type="datetime-local"]:focus,
+.darkmysite_license_form_single_form_element textarea:focus,
+.darkmysite_license_form_single_form_element select:focus{
+    color: #43454b;
+    border: 1px solid #d9d9db;
+    background: #FFFFFF;
+    outline: none;
+    box-shadow: none;
+}
+
+
+
+
+
+
+.darkmysite_license_form_single_form_element button{
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    padding: 9px 6px;
+    width: 150px;
+}
+.darkmysite_license_form_single_form_element button:hover{
+    background: #090808;
+}

@@ -1,0 +1,26 @@
+.resume-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+}
+
+.resume-item {
+    margin-bottom: 15px;
+}
+
+.button {
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #005177;
+}

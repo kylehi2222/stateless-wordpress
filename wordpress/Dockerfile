@@ -1,12 +1,12 @@
 FROM composer:2.7.7 as build
 WORKDIR /usr/src/app
+
+# Install Composer dependencies first
 COPY composer.* ./
 RUN composer install --no-dev
-COPY mu-plugins ./wp-content/mu-plugins
-COPY themes ./themes
+
+# Optional: Unzip any zipped themes and plugins (if necessary)
 RUN for file in `ls ./themes/*.zip`; do unzip "${file}" -d "./wp-content/themes"; done
-COPY plugins ./plugins
-RUN for file in `ls ./plugins/*.zip`; do unzip "${file}" -d "./wp-content/plugins"; done
 
 FROM wordpress:6.6.1-fpm-alpine
 
@@ -43,11 +43,21 @@ ENV PHP_FPM_MAX_REQUESTS="1000"
 # Copy the PHP-FPM configuration file
 COPY ./www.conf /usr/local/etc/php-fpm.d/www.conf
 
-# Default Themes/Plugins Cleanup
-RUN rm -r /usr/src/wordpress/wp-content/themes/*
-RUN rm -r /usr/src/wordpress/wp-content/plugins/*
+# Clean up default themes and plugins only if the directories exist
+RUN [ -d "/var/www/html/wp-content/themes/" ] && rm -r /var/www/html/wp-content/themes/* || echo "Themes directory doesn't exist."
+RUN [ -d "/var/www/html/wp-content/plugins/" ] && rm -r /var/www/html/wp-content/plugins/* || echo "Plugins directory doesn't exist."
 
-# Copy WordPress files
-# TODO: Use wp-config-docker.php from the WordPress official Docker image
-COPY --chown=www-data:www-data wp-config.php /usr/src/wordpress/wp-config.php
-COPY --chown=www-data:www-data --from=build /usr/src/app/wp-content /usr/src/wordpress/wp-content
+# Copy Manually Added Themes and Plugins After Composer
+COPY --chown=www-data:www-data wp-config.php /var/www/html/wp-config.php
+COPY --chown=www-data:www-data --from=build /usr/src/app/wp-content /var/www/html/wp-content
+
+# Copy plugins and themes after Composer operations
+COPY mu-plugins /var/www/html/wp-content/mu-plugins/
+COPY themes /var/www/html/wp-content/themes/
+COPY plugins /var/www/html/wp-content/plugins/
+
+# Debugging: List the contents of the themes and plugins directories after copying
+RUN ls /var/www/html/wp-content/themes
+RUN ls /var/www/html/wp-content/plugins
+
+COPY DigiCertGlobalRootCA.crt.pem /etc/ssl/certs/DigiCertGlobalRootCA.crt.pem

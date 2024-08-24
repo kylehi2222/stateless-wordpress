@@ -1,0 +1,122 @@
+//
+// Reports box
+//
+.ps-post--unpublished, .ps-comment--unpublished  {
+    > * {
+        opacity: .6;
+    }
+}
+
+.ps-post-reports {
+    display: flex;
+    flex-direction: column;
+    font-size: 90%;
+    background-color: var(--PS-COLOR--APP);
+    box-shadow: 0 0 0 1px var(--DIVIDER--LIGHT), 0 0 0 4px var(--COLOR--ABORT--LIGHT);
+    border-radius: var(--BORDER-RADIUS);
+    opacity: 1;
+
+    .ps-comment & {
+        margin-block: var(--PADD--SM);
+    }
+
+    .ps-focus__footer & {
+        margin: var(--PADD--MD);
+    }
+}
+
+.ps-post-reports__head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ps-post-reports__title {
+    display: flex;
+    align-items: center;
+    gap: var(--PADD);
+    padding: var(--PADD); // temp
+    font-weight: 500;
+
+    i {
+        color: var(--PS-COLOR--ABORT);
+    }
+
+    a {
+        font-weight: normal;
+    }
+
+    .gci-eye-slash {
+        color: var(--PS-COLOR--TEXT--LIGHT);
+    }
+}
+
+.ps-post-reports__counter {}
+
+.ps-post-reports__ignore {
+    color: var(--COLOR--SUCCESS--DARK);
+
+    i {
+        color: var(--COLOR--SUCCESS);
+    }
+
+    &:hover {
+        color: var(--PS-COLOR--TEXT);
+    }
+}
+
+.ps-post-reports__delete {
+    color: var(--COLOR--ABORT--DARK);
+
+    i {
+        color: var(--COLOR--ABORT);
+    }
+
+    &:hover {
+        color: var(--PS-COLOR--TEXT);
+    }
+}
+
+.ps-post-reports__toggle {
+    padding: var(--PADD);
+}
+
+.ps-post-reports__list {}
+
+//
+// Single report
+//
+.ps-post-report {
+    display: flex;
+    align-items: start;
+    gap: var(--PADD);
+    padding: var(--PADD);
+    border-top: 1px solid var(--DIVIDER--LIGHT);
+}
+
+.ps-post-report__avatar {}
+
+.ps-post-report__data {
+    flex-grow: 1;
+}
+
+.ps-post-report__reason {
+    display: flex;
+    gap: var(--PADD--SM);
+}
+
+.ps-post-report__title {
+    flex-grow: 1;
+    font-weight: 500;
+    color: var(--PS-COLOR--TEXT);
+}
+
+.ps-post-report__time {
+    padding-top: 1px;
+    font-size: 90%;
+    white-space: nowrap;
+    color: var(--PS-COLOR--TEXT--LIGHT);
+}
+
+.ps-post-report__info {
+    color: var(--PS-COLOR--TEXT--LIGHT);
+}

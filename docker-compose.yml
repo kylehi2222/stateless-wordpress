@@ -1,45 +1,38 @@
 version: '3.7'
 
 volumes:
-  db-data:
   wp-data:
 
 services:
-  db:
-    container_name: stateless-wordpress_db
-    image: mysql:5.7
-    restart: always
-    volumes:
-      - db-data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-
   wordpress:
-    container_name: stateless-wordpress_wordpress
     build: ./wordpress
     restart: always
     volumes:
       - wp-data:/var/www/html
-    depends_on:
-      - db
     environment:
-      WP_DB_HOST: db
-      WP_DB_NAME: wordpress
-      WP_DB_USER: wordpress
-      WP_DB_PASSWORD: wordpress
+      WP_DB_HOST: hdai-db.mysql.database.azure.com
+      WP_DB_NAME: hdai_db
+      WP_DB_USER: hdaiadmin
+      WP_DB_PASSWORD: SuperAbundance@888
+      WP_DB_CHARSET: utf8
+      WP_AUTH_KEY: 'V_hV:*{!yW>ON%Q(}~F~+|kL|Q8P:J3E,ysC%| a,JRMcj`-r$/E+^5eP&<9!;1T'
+      WP_SECURE_AUTH_KEY: 'gtBS@[ }LEB5#(9FmBB~ <T|m+-+(A&1,uw0Gsu}|tb] ny{]+>76F[Uo-r^Lh.Q'
+      WP_LOGGED_IN_KEY: 'i_N.b+5>-!=S-sZslTKE!FHz+lY(j2lb%X|[j]usLG<hPoD<&FREffFjuBQpRMTt'
+      WP_NONCE_KEY: '`D({4SYOf6VgF`XPp6ZF9s4kNVf1e:2lL<2 !N32bV%H`l`=Ep3?;{G0zp72@AdD'
+      WP_AUTH_SALT: '`,}|$(a|+BKZL+F_siCldZ-=2*=O=VDFPkNhLPg GaWqu*lohbUav[@-W{:x&W|i'
+      WP_SECURE_AUTH_SALT: '^D-TR*rX)X>]&cI(<sBB/.`S0>-Bgm3tA|V+gG<)b-~|.95yI5Yg_>%y{;6%)G/@'
+      WP_LOGGED_IN_SALT: 'V(UH9WrsxP;CcG3W<ksu`9.ZkvpnV-@3.yh5ON88=l%4+#pmup&7Yf1%%Y2ox{$c'
+      WP_NONCE_SALT: '`5)a-(6Kx,p#zBZ)EWn +e8B:lAkCL1*SgWtL.Q-7jIFr:Q+-l5o+x^I~KN]226}'
+      WP_CACHE_KEY_SALT: '&.Wf~4g)fZu2LILHu8H*vLULBZ9y]PeU{siK0q?0]}.G`cy;fUm@e7?vSXs)hk:C'
 
   nginx:
-    container_name: stateless-wordpress_nginx
     build: ./nginx
     restart: always
     volumes:
       - wp-data:/var/www/html
-    depends_on: 
+    depends_on:
       - wordpress
-    ports: 
+    ports:
       - "8080:80"
     environment:
       UPSTREAM_SERVER: wordpress
